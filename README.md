@@ -50,18 +50,28 @@ npm install
 ### 🚀 Development
 
 ```bash
-# Start development server
+# Start development server (opens at http://localhost:5173)
 npm run dev
 
 # Build for production
 npm run build
 
-# Preview production build
+# Preview production build locally (opens at http://localhost:4173)
 npm run preview
 
 # Run linter
 npm run lint
 ```
+
+#### 🔧 Development Modes Explained:
+
+| Command | Purpose | When to Use |
+|---------|---------|-------------|
+| `npm run dev` | Hot-reloading development server | Active development, sees changes instantly |
+| `npm run preview` | Test production build locally | Before deployment, verify build works correctly |
+| `npm run deploy` | Deploy to production | When ready to publish to awsusergroups.com |
+
+⚠️ **Important:** Never open `dist/index.html` directly in a browser! The built files use absolute paths and won't work with the `file://` protocol. Always use `npm run preview` to test production builds locally.
 
 ### 🌐 Deployment (GitHub Pages)
 
@@ -102,6 +112,37 @@ If this is a fresh clone, make sure GitHub Pages is configured:
 5. Save changes
 
 The site will be available at your custom domain or `https://username.github.io/repository-name/`
+
+### 🔍 Troubleshooting
+
+#### Local Website Not Working?
+
+**Problem:** "Local website is working bad" or blank page after opening `dist/index.html`
+
+**Solution:**
+- ❌ DON'T: Open `dist/index.html` directly in browser (double-click)
+- ✅ DO: Use `npm run preview` to test the production build
+- ✅ DO: Use `npm run dev` for development
+
+**Why?** Production builds use absolute paths (`/assets/...`) that only work with a proper server, not the `file://` protocol.
+
+#### Production Site Not Updating?
+
+1. Clear browser cache (Ctrl+Shift+R or Cmd+Shift+R)
+2. Check GitHub Actions completed successfully
+3. Verify `gh-pages` branch has latest build
+4. Wait 1-2 minutes for CDN propagation
+
+#### Port Already in Use?
+
+If `npm run dev` fails because port 5173 is in use:
+```bash
+# Kill the process using the port (macOS/Linux)
+lsof -ti:5173 | xargs kill -9
+
+# Or use a different port
+npm run dev -- --port 3000
+```
 
 ### 📁 Project Structure
 
