@@ -7,7 +7,6 @@ export { default as Partners } from './Partners'
 export { default as Sponsors } from './Sponsors'
 export { default as FAQ } from './FAQ'
 export { default as CTA } from './CTA'
-export { default as AboutGroup } from './AboutGroup'
 export { default as GetInvolved } from './GetInvolved'
 
 
