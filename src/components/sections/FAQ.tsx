@@ -161,7 +161,7 @@ export default function FAQ() {
               }`}
             >
               {/* Accordion Section */}
-              <div ref={el => accordionRefs.current[key] = el} className={sectionIndex === 1 ? 'order-last md:order-none' : ''}>
+              <div ref={el => { accordionRefs.current[key] = el }} className={sectionIndex === 1 ? 'order-last md:order-none' : ''}>
                 <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4 sm:mb-6">{section.title}</h3>
                 <div className="space-y-2 sm:space-y-3">
                   {section.items.map((item, index) => (
