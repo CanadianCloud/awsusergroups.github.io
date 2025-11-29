@@ -63,6 +63,46 @@ npm run preview
 npm run lint
 ```
 
+### 🌐 Deployment (GitHub Pages)
+
+This project is configured to deploy automatically to GitHub Pages using the `gh-pages` package.
+
+#### How it works:
+
+The deployment process uses an isolated `gh-pages` branch that contains only the built production files, keeping your source code separate in the `main` branch.
+
+#### Deploy to GitHub Pages:
+
+```bash
+# Deploy to GitHub Pages (one command does it all)
+npm run deploy
+```
+
+This command will:
+1. ✅ Compile TypeScript files
+2. ✅ Build the production bundle (creates `dist/` folder)
+3. ✅ Copy the `CNAME` file for custom domain
+4. ✅ Push the `dist/` folder to the `gh-pages` branch
+5. ✅ Your site goes live automatically at [awsusergroups.com](https://awsusergroups.com)
+
+#### Branch Structure:
+
+- **`main`** - Source code (development)
+- **`draft`** - Backup branch
+- **`gh-pages`** - Production build (auto-generated, do not edit manually)
+
+#### First-time Setup:
+
+If this is a fresh clone, make sure GitHub Pages is configured:
+
+1. Go to your repository settings on GitHub
+2. Navigate to **Pages** section
+3. Set source to **`gh-pages`** branch
+4. Set folder to **`/ (root)`**
+5. Save changes
+
+The site will be available at your custom domain or `https://username.github.io/repository-name/`
+
 ### 📁 Project Structure
 
 ```
@@ -181,6 +221,46 @@ npm run preview
 # Ejecutar linter
 npm run lint
 ```
+
+### 🌐 Despliegue (GitHub Pages)
+
+Este proyecto está configurado para desplegarse automáticamente en GitHub Pages usando el paquete `gh-pages`.
+
+#### Cómo funciona:
+
+El proceso de despliegue utiliza una rama aislada `gh-pages` que contiene solo los archivos de producción compilados, manteniendo tu código fuente separado en la rama `main`.
+
+#### Desplegar a GitHub Pages:
+
+```bash
+# Desplegar a GitHub Pages (un solo comando lo hace todo)
+npm run deploy
+```
+
+Este comando hará:
+1. ✅ Compilar archivos TypeScript
+2. ✅ Construir el bundle de producción (crea la carpeta `dist/`)
+3. ✅ Copiar el archivo `CNAME` para el dominio personalizado
+4. ✅ Enviar la carpeta `dist/` a la rama `gh-pages`
+5. ✅ Tu sitio se publica automáticamente en [awsusergroups.com](https://awsusergroups.com)
+
+#### Estructura de Ramas:
+
+- **`main`** - Código fuente (desarrollo)
+- **`draft`** - Rama de respaldo
+- **`gh-pages`** - Build de producción (auto-generado, no editar manualmente)
+
+#### Configuración Inicial:
+
+Si es un clon nuevo, asegúrate de que GitHub Pages esté configurado:
+
+1. Ve a la configuración de tu repositorio en GitHub
+2. Navega a la sección **Pages**
+3. Establece la fuente como rama **`gh-pages`**
+4. Establece la carpeta como **`/ (root)`**
+5. Guarda los cambios
+
+El sitio estará disponible en tu dominio personalizado o `https://username.github.io/nombre-repositorio/`
 
 ### 📁 Estructura del Proyecto
 
