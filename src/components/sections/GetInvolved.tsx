@@ -22,23 +22,23 @@ export default function GetInvolved() {
   ];
 
   return (
-    <section id="get-involved" className="py-20 bg-[#2b2b2b]">
-      <div className="container mx-auto px-4 max-w-7xl">
+    <section id="get-involved" className="py-12 sm:py-16 md:py-20 bg-[#2b2b2b]">
+      <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
         <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-gray-600">
           {cards.map((card, index) => (
             <div
               key={index}
-              className="flex flex-col items-center text-center px-8 py-12 md:py-8"
+              className="flex flex-col items-center text-center px-4 sm:px-8 py-8 sm:py-12 md:py-8"
             >
               <img
                 src={card.icon}
                 alt={card.title}
-                className="w-20 h-20 mb-6"
+                className="w-16 h-16 sm:w-20 sm:h-20 mb-4 sm:mb-6"
               />
-              <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
+              <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-3 sm:mb-4">
                 {card.title}
               </h3>
-              <p className="text-gray-300 text-base md:text-lg leading-relaxed max-w-sm">
+              <p className="text-gray-300 text-sm sm:text-base md:text-lg leading-relaxed max-w-sm">
                 {card.description}
               </p>
             </div>

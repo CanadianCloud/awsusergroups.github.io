@@ -137,33 +137,33 @@ export default function FAQ() {
   };
 
   return (
-    <section id="faq" className="py-20 bg-white">
-      <div className="container mx-auto px-4 max-w-7xl">
+    <section id="faq" className="py-12 sm:py-16 md:py-20 bg-white">
+      <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
         {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+        <div className="text-center mb-12 sm:mb-16">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-3 sm:mb-4 px-4">
             Frequently Asked Questions
           </h2>
-          <p className="text-gray-600 text-lg max-w-3xl mx-auto">
+          <p className="text-gray-600 text-sm sm:text-base md:text-lg max-w-3xl mx-auto px-4">
             Got questions? We've grouped the most common ones below to help you get the most out of our community events.
           </p>
         </div>
 
         {/* FAQ Sections */}
-        <div className="space-y-20">
+        <div className="space-y-12 sm:space-y-16 md:space-y-20">
           {Object.entries(faqData).map(([key, section], sectionIndex) => (
             <div
               key={key}
-              className={`grid gap-10 items-start ${
+              className={`grid gap-6 sm:gap-8 md:gap-10 items-start ${
                 sectionIndex === 1 
                   ? 'md:grid-cols-[1fr_2fr]' 
                   : 'md:grid-cols-[2fr_1fr]'
               }`}
             >
               {/* Accordion Section */}
-              <div ref={el => accordionRefs.current[key] = el}>
-                <h3 className="text-3xl font-bold text-gray-900 mb-6">{section.title}</h3>
-                <div className="space-y-3">
+              <div ref={el => accordionRefs.current[key] = el} className={sectionIndex === 1 ? 'order-last md:order-none' : ''}>
+                <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4 sm:mb-6">{section.title}</h3>
+                <div className="space-y-2 sm:space-y-3">
                   {section.items.map((item, index) => (
                     <div
                       key={index}
@@ -175,15 +175,15 @@ export default function FAQ() {
                     >
                       <button
                         onClick={() => toggleItem(key, index)}
-                        className={`w-full px-6 py-4 text-left flex items-center justify-between transition-colors duration-200 ${
+                        className={`w-full px-4 sm:px-6 py-3 sm:py-4 text-left flex items-center justify-between transition-colors duration-200 min-h-[48px] ${
                           openItems[key] === index
                             ? 'text-gray-900'
-                            : 'text-gray-800 hover:bg-gray-50'
+                            : 'text-gray-800 hover:bg-gray-50 active:bg-gray-100'
                         }`}
                       >
-                        <span className="font-medium pr-4">{item.question}</span>
+                        <span className="font-medium pr-3 sm:pr-4 text-sm sm:text-base">{item.question}</span>
                         <svg
-                          className={`w-5 h-5 flex-shrink-0 transition-transform duration-300 ease-in-out ${
+                          className={`w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0 transition-transform duration-300 ease-in-out ${
                             openItems[key] === index ? 'rotate-180' : ''
                           }`}
                           fill="none"
@@ -206,8 +206,8 @@ export default function FAQ() {
                         }`}
                       >
                         <div className="overflow-hidden">
-                          <div className="px-6 pb-4">
-                            <p className="text-gray-900 leading-relaxed">{item.answer}</p>
+                          <div className="px-4 sm:px-6 pb-3 sm:pb-4">
+                            <p className="text-gray-900 leading-relaxed text-sm sm:text-base">{item.answer}</p>
                           </div>
                         </div>
                       </div>
@@ -217,9 +217,9 @@ export default function FAQ() {
               </div>
 
               {/* Image Section */}
-              <div className={sectionIndex === 1 ? 'order-first' : ''}>
+              <div className={sectionIndex === 1 ? 'order-first md:order-first' : ''}>
                 <div 
-                  className="relative w-full aspect-[3/4] max-h-[500px] rounded-2xl overflow-hidden shadow-xl bg-cover bg-center grayscale hover:grayscale-0 transition-all duration-300"
+                  className="relative w-full aspect-[3/4] max-h-[400px] sm:max-h-[500px] rounded-2xl overflow-hidden shadow-xl bg-cover bg-center grayscale hover:grayscale-0 transition-all duration-300"
                   style={{ backgroundImage: `url(${section.image})` }}
                 >
                   <div className="absolute inset-0 bg-black/10 hover:bg-transparent transition-all duration-300" />

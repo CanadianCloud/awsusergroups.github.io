@@ -27,29 +27,29 @@ export default function UpcomingEvents() {
   ];
 
   return (
-    <section id="events" className="py-20 bg-gray-100">
-      <div className="container mx-auto px-4 max-w-6xl">
+    <section id="events" className="py-12 sm:py-16 md:py-20 bg-gray-100">
+      <div className="container mx-auto px-4 sm:px-6 max-w-6xl">
         {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+        <div className="text-center mb-12 sm:mb-16">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-3 sm:mb-4 px-4">
             Upcoming Events
           </h2>
-          <p className="text-lg text-gray-700">
+          <p className="text-base sm:text-lg text-gray-700 px-4">
             Check out the upcoming events and get involved — your participation makes a difference!
           </p>
         </div>
 
         {/* Events Grid */}
-        <div className="space-y-8">
+        <div className="space-y-6 sm:space-y-8">
           {events.map((event) => (
             <div
               key={event.id}
               className="bg-white rounded-2xl shadow-md border border-gray-200 hover:shadow-lg transition-shadow"
             >
-              <div className="flex flex-col md:flex-row p-6 gap-6">
+              <div className="flex flex-col md:flex-row p-4 sm:p-6 gap-4 sm:gap-6">
                 {/* Event Image */}
-                <div className="h-[193px] md:w-80 flex-shrink-0">
-                  <div className=" md:h-full bg-gray-800 rounded-2xl overflow-hidden">
+                <div className="h-[180px] sm:h-[193px] md:w-80 flex-shrink-0">
+                  <div className="h-full bg-gray-800 rounded-2xl overflow-hidden">
                     <img
                       src={event.image}
                       alt={event.title}
@@ -60,15 +60,15 @@ export default function UpcomingEvents() {
 
                 {/* Event Details */}
                 <div className="flex-1">
-                  <div className="text-sm font-semibold text-gray-900 mb-3">
+                  <div className="text-xs sm:text-sm font-semibold text-gray-900 mb-2 sm:mb-3">
                     {event.date}
                   </div>
                   
-                  <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+                  <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-3 sm:mb-4 leading-tight">
                     {event.title}
                   </h3>
 
-                  <div className="mb-4">
+                  <div className="mb-3 sm:mb-4">
                     <div className="flex items-start text-gray-600 mb-2">
                       <svg
                         className="w-5 h-5 mr-2 mt-0.5 flex-shrink-0"
@@ -90,13 +90,13 @@ export default function UpcomingEvents() {
                         />
                       </svg>
                       <div>
-                        <div className="font-medium">{event.location}</div>
-                        <div className="text-sm">{event.address}</div>
+                        <div className="font-medium text-sm sm:text-base">{event.location}</div>
+                        <div className="text-xs sm:text-sm">{event.address}</div>
                       </div>
                     </div>
                   </div>
 
-                  <div className="mb-4 space-y-2">
+                  <div className="mb-3 sm:mb-4 space-y-2">
                     <div className="flex items-start">
                       <svg
                         className="w-5 h-5 mr-2 mt-0.5 flex-shrink-0 text-gray-400"
@@ -109,7 +109,7 @@ export default function UpcomingEvents() {
                           clipRule="evenodd"
                         />
                       </svg>
-                      <p className="text-sm text-gray-700">
+                      <p className="text-xs sm:text-sm text-gray-700">
                         {event.highlight}
                       </p>
                     </div>
@@ -125,17 +125,17 @@ export default function UpcomingEvents() {
                           clipRule="evenodd"
                         />
                       </svg>
-                      <p className="text-sm font-semibold text-gray-900">
+                      <p className="text-xs sm:text-sm font-semibold text-gray-900">
                         {event.ticketInfo}
                       </p>
                     </div>
                   </div>
 
-                  <p className="text-gray-700 mb-6 leading-relaxed">
+                  <p className="text-sm sm:text-base text-gray-700 mb-4 sm:mb-6 leading-relaxed">
                     {event.description}
                   </p>
 
-                  <button className="bg-aws-orange hover:bg-aws-orange-dark text-black font-semibold px-6 py-3 rounded-full transition-colors inline-flex items-center">
+                  <button className="bg-aws-orange hover:bg-aws-orange-dark text-black font-semibold px-5 sm:px-6 py-3 rounded-full transition-all active:scale-95 inline-flex items-center text-sm sm:text-base min-h-[44px]">
                     {event.buttonText}
                   </button>
                 </div>

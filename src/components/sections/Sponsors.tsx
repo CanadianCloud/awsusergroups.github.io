@@ -51,41 +51,35 @@ export default function Sponsors() {
     { name: 'Couchbase', logo: couchbase },
   ];
 
-  const renderRow = (sponsors: typeof row1) => (
-    <div className="flex justify-center gap-4 md:gap-6 mb-4 md:mb-6">
-      {sponsors.map((sponsor, index) => (
-        <div
-          key={index}
-          className="flex items-center justify-center px-6 py-4 md:px-8 md:py-5 bg-white rounded-3xl shadow-sm hover:shadow-md transition-shadow w-[140px] md:w-[160px]"
-        >
-          <img
-            src={sponsor.logo}
-            alt={sponsor.name}
-            className="h-auto max-h-10 md:max-h-12 w-full object-contain"
-          />
-        </div>
-      ))}
-    </div>
-  );
+  const allSponsors = [...row1, ...row2, ...row3];
 
   return (
-    <section id="sponsors" className="py-20 bg-gray-100">
-      <div className="container mx-auto px-4 max-w-7xl">
+    <section id="sponsors" className="py-12 sm:py-16 md:py-20 bg-gray-100">
+      <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
         {/* Header */}
-        <div className="mb-12 max-w-2xl">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+        <div className="mb-8 sm:mb-12 max-w-2xl">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-3 sm:mb-4">
             Sponsors
           </h2>
-          <p className="text-base md:text-lg text-gray-700">
+          <p className="text-sm sm:text-base md:text-lg text-gray-700">
             Thank you to all our past sponsors for your support.
           </p>
         </div>
 
-        {/* Sponsors in 3 rows */}
-        <div>
-          {renderRow(row1)}
-          {renderRow(row2)}
-          {renderRow(row3)}
+        {/* Sponsors Grid - Responsive */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 sm:gap-4 md:gap-5">
+          {allSponsors.map((sponsor, index) => (
+            <div
+              key={index}
+              className="flex items-center justify-center px-4 py-4 sm:px-5 sm:py-5 md:px-6 md:py-5 bg-white rounded-2xl sm:rounded-3xl shadow-sm hover:shadow-md transition-shadow min-h-[90px] sm:min-h-[100px]"
+            >
+              <img
+                src={sponsor.logo}
+                alt={sponsor.name}
+                className="h-auto max-h-8 sm:max-h-10 md:max-h-12 w-full object-contain"
+              />
+            </div>
+          ))}
         </div>
       </div>
     </section>

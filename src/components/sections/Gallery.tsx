@@ -35,18 +35,18 @@ export default function Gallery() {
   };
 
   return (
-    <section className="py-20 bg-white">
-      <div className="container mx-auto px-4 max-w-7xl">
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-12 text-gray-900">
+    <section className="py-12 sm:py-16 md:py-20 bg-white">
+      <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-8 sm:mb-12 text-gray-900">
           Gallery
         </h2>
         
         {/* Masonry Grid Layout - fills all space */}
-        <div className="grid grid-cols-2 md:grid-cols-6 auto-rows-[250px] gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-6 auto-rows-[200px] sm:auto-rows-[250px] gap-3 sm:gap-4">
           {/* Large feature image - spans 4 cols × 2 rows */}
           <button
             onClick={() => openLightbox(0)}
-            className="relative col-span-2 md:col-span-4 md:row-span-2 overflow-hidden rounded-lg group cursor-pointer bg-gray-200"
+            className="relative col-span-2 md:col-span-4 md:row-span-2 overflow-hidden rounded-lg group cursor-pointer bg-gray-200 active:scale-[0.98] transition-transform"
           >
             <img
               src={images[0].src}
@@ -59,7 +59,7 @@ export default function Gallery() {
           {/* Right side - 2 images stacked */}
           <button
             onClick={() => openLightbox(1)}
-            className="relative col-span-1 md:col-span-2 md:row-span-1 overflow-hidden rounded-lg group cursor-pointer bg-gray-200"
+            className="relative col-span-1 md:col-span-2 md:row-span-1 overflow-hidden rounded-lg group cursor-pointer bg-gray-200 active:scale-[0.98] transition-transform"
           >
             <img
               src={images[1].src}
@@ -71,7 +71,7 @@ export default function Gallery() {
 
           <button
             onClick={() => openLightbox(2)}
-            className="relative col-span-1 md:col-span-2 md:row-span-1 overflow-hidden rounded-lg group cursor-pointer bg-gray-200"
+            className="relative col-span-1 md:col-span-2 md:row-span-1 overflow-hidden rounded-lg group cursor-pointer bg-gray-200 active:scale-[0.98] transition-transform"
           >
             <img
               src={images[2].src}
@@ -84,7 +84,7 @@ export default function Gallery() {
           {/* Bottom row - 3 images of 2 cols each */}
           <button
             onClick={() => openLightbox(3)}
-            className="relative col-span-1 md:col-span-2 md:row-span-1 overflow-hidden rounded-lg group cursor-pointer bg-gray-200"
+            className="relative col-span-1 md:col-span-2 md:row-span-1 overflow-hidden rounded-lg group cursor-pointer bg-gray-200 active:scale-[0.98] transition-transform"
           >
             <img
               src={images[3].src}
@@ -96,7 +96,7 @@ export default function Gallery() {
 
           <button
             onClick={() => openLightbox(4)}
-            className="relative col-span-1 md:col-span-2 md:row-span-1 overflow-hidden rounded-lg group cursor-pointer bg-gray-200"
+            className="relative col-span-1 md:col-span-2 md:row-span-1 overflow-hidden rounded-lg group cursor-pointer bg-gray-200 active:scale-[0.98] transition-transform"
           >
             <img
               src={images[4].src}
@@ -108,7 +108,7 @@ export default function Gallery() {
 
           <button
             onClick={() => openLightbox(5)}
-            className="relative col-span-2 md:col-span-2 md:row-span-1 overflow-hidden rounded-lg group cursor-pointer bg-gray-200"
+            className="relative col-span-2 md:col-span-2 md:row-span-1 overflow-hidden rounded-lg group cursor-pointer bg-gray-200 active:scale-[0.98] transition-transform"
           >
             <img
               src={images[5].src}
@@ -121,7 +121,7 @@ export default function Gallery() {
           {/* Extra row */}
           <button
             onClick={() => openLightbox(6)}
-            className="relative col-span-1 md:col-span-3 md:row-span-1 overflow-hidden rounded-lg group cursor-pointer bg-gray-200"
+            className="relative col-span-1 md:col-span-3 md:row-span-1 overflow-hidden rounded-lg group cursor-pointer bg-gray-200 active:scale-[0.98] transition-transform"
           >
             <img
               src={images[6].src}
@@ -133,7 +133,7 @@ export default function Gallery() {
 
           <button
             onClick={() => openLightbox(7)}
-            className="relative col-span-1 md:col-span-3 md:row-span-1 overflow-hidden rounded-lg group cursor-pointer bg-gray-200"
+            className="relative col-span-1 md:col-span-3 md:row-span-1 overflow-hidden rounded-lg group cursor-pointer bg-gray-200 active:scale-[0.98] transition-transform"
           >
             <img
               src={images[7].src}

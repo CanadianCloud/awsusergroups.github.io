@@ -12,30 +12,30 @@ export default function Partners() {
   ];
 
   return (
-    <section id="partners" className="py-20 bg-gray-100">
-      <div className="container mx-auto px-4 max-w-7xl">
-        <div className="flex flex-col md:flex-row gap-8 md:gap-12 items-center">
+    <section id="partners" className="py-12 sm:py-16 md:py-20 bg-gray-100">
+      <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
+        <div className="flex flex-col md:flex-row gap-6 sm:gap-8 md:gap-12 items-center">
           {/* Left side - Text */}
-          <div className="flex-shrink-0 md:max-w-md">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <div className="flex-shrink-0 md:max-w-md w-full">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-3 sm:mb-4">
               Partners
             </h2>
-            <p className="text-base md:text-lg text-gray-700 leading-relaxed">
+            <p className="text-sm sm:text-base md:text-lg text-gray-700 leading-relaxed">
               We're proud to collaborate with organizations that help us grow and empower the AWS community.
             </p>
           </div>
 
           {/* Right side - Logos horizontal */}
-          <div className="flex-1 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+          <div className="flex-1 w-full grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
             {partners.map((partner, index) => (
               <div
                 key={index}
-                className="flex items-center justify-center px-6 py-4 md:px-8 md:py-5 bg-white rounded-2xl shadow-sm hover:shadow-md transition-shadow"
+                className="flex items-center justify-center px-4 py-3 sm:px-6 sm:py-4 md:px-8 md:py-5 bg-white rounded-2xl shadow-sm hover:shadow-md transition-shadow min-h-[80px] sm:min-h-[90px]"
               >
                 <img
                   src={partner.logo}
                   alt={partner.name}
-                  className="max-w-full h-auto max-h-14 md:max-h-16 object-contain"
+                  className="max-w-full h-auto max-h-10 sm:max-h-14 md:max-h-16 object-contain"
                 />
               </div>
             ))}

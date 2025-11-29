@@ -8,16 +8,16 @@ export default function Slider() {
   ];
 
   return (
-    <section className="py-6 bg-aws-orange overflow-hidden">
+    <section className="py-4 sm:py-5 md:py-6 bg-aws-orange overflow-hidden">
       <div className="relative flex">
         {/* First set of phrases */}
         <div className="flex animate-scroll whitespace-nowrap">
           {phrases.map((phrase, index) => (
-            <div key={`first-${index}`} className="flex items-center px-8">
-              <span className="text-[18px] text-black">
+            <div key={`first-${index}`} className="flex items-center px-4 sm:px-6 md:px-8">
+              <span className="text-sm sm:text-base md:text-lg font-semibold text-black">
                 {phrase}
               </span>
-              <span className="text-[18px] text-black mx-8">✱</span>
+              <span className="text-sm sm:text-base md:text-lg text-black mx-4 sm:mx-6 md:mx-8">✱</span>
             </div>
           ))}
         </div>
@@ -25,11 +25,11 @@ export default function Slider() {
         {/* Duplicate set for seamless loop */}
         <div className="flex animate-scroll whitespace-nowrap" aria-hidden="true">
           {phrases.map((phrase, index) => (
-            <div key={`second-${index}`} className="flex items-center px-8">
-              <span className="text-[18px] text-black">
+            <div key={`second-${index}`} className="flex items-center px-4 sm:px-6 md:px-8">
+              <span className="text-sm sm:text-base md:text-lg font-semibold text-black">
                 {phrase}
               </span>
-              <span className="text-[18px] text-black mx-8">✱</span>
+              <span className="text-sm sm:text-base md:text-lg text-black mx-4 sm:mx-6 md:mx-8">✱</span>
             </div>
           ))}
         </div>
