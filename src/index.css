@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Sans+Pro:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-family-inter: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-family-source-sans: 'Source Sans Pro', sans-serif;
+  
+  /* AWS Orange Colors */
+  --color-aws-orange: #ff9d00;
+  --color-aws-orange-light: #ffb333;
+  --color-aws-orange-dark: #f28c00;
+  
+  /* Slider Animation */
+  --animate-scroll: scroll 30s linear infinite;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.font-inter {
+  font-family: theme(--font-family-inter);
+}
+
+.font-source-sans {
+  font-family: theme(--font-family-source-sans);
+}
+
+.font-source-sans-bold {
+  font-family: theme(--font-family-source-sans);
+  font-weight: 700;
+}
+
+:root {
+  font-family: theme(--font-family-inter);
+  background-color: #050505;
+  color: #fff;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: inherit;
+  background-color: #050505;
+  color: #fff;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  min-height: 100vh;
+  background-color: #050505;
+}
+
+/* Scroll offset for fixed header */
+section[id] {
+  scroll-margin-top: 80px;
+}
