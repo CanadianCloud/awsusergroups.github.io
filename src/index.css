@@ -1,64 +1,232 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Sans+Pro:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap');
+﻿@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 @import "tailwindcss";
 
-@theme {
-  --font-family-inter: 'Inter', system-ui, -apple-system, sans-serif;
-  --font-family-source-sans: 'Source Sans Pro', sans-serif;
-  
-  /* AWS Orange Colors */
-  --color-aws-orange: #ff9d00;
-  --color-aws-orange-light: #ffb333;
-  --color-aws-orange-dark: #f28c00;
-  
-  /* Slider Animation */
-  --animate-scroll: scroll 30s linear infinite;
+/* ==================== */
+/* BASE STYLES          */
+/* ==================== */
+html { 
+  scroll-behavior: smooth;
+}
+html, body, #root { 
+  height: 100%; 
+  font-family: 'Inter', sans-serif;
+}
+.container { 
+  max-width: 1100px; 
+  margin-left: auto; 
+  margin-right: auto; 
+  padding-left: 1rem; 
+  padding-right: 1rem; 
 }
 
+/* ==================== */
+/* DESIGN TOKENS        */
+/* ==================== */
+
+/* Typography - Font Families */
+.font-source { 
+  font-family: 'Source Sans Pro', sans-serif; 
+}
+
+/* Typography - Colors */
+.text-aws-dark { 
+  color: #1C1C1C; 
+}
+.text-aws-body { 
+  color: rgba(0, 0, 0, 0.9); 
+}
+
+/* Background Colors */
+.bg-aws-orange { 
+  background-color: #ff9900; 
+}
+.bg-aws-orange-hover:hover { 
+  background-color: #e68a00; 
+}
+.bg-aws-gray { 
+  background-color: #F5F5F5; 
+}
+.bg-aws-dark { 
+  background-color: #1a1a1a; 
+}
+
+/* ==================== */
+/* TYPOGRAPHY CLASSES   */
+/* ==================== */
+
+/* Section Title - 35px */
+.section-title {
+  font-size: 35px;
+  font-weight: 500;
+  font-family: 'Source Sans Pro', sans-serif;
+  color: #1C1C1C;
+  line-height: 1.2;
+}
+
+/* Section Subtitle - 30px */
+.section-subtitle {
+  font-size: 30px;
+  font-weight: 500;
+  font-family: 'Source Sans Pro', sans-serif;
+  color: #1C1C1C;
+}
+
+/* Hero Title */
+.hero-title {
+  font-weight: 600;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+/* Body Text */
+.body-text {
+  font-size: 17px;
+  color: rgba(0, 0, 0, 0.9);
+}
+
+/* FAQ Question Text */
+.faq-question {
+  font-size: 17px;
+  font-weight: 500;
+  font-family: 'Source Sans Pro', sans-serif;
+  color: rgba(0, 0, 0, 0.9);
+}
+
+/* ==================== */
+/* BUTTON CLASSES       */
+/* ==================== */
+
+/* Primary Button (Orange) */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 2rem;
+  background-color: #ff9900;
+  border-radius: 9999px;
+  font-size: 17px;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.9);
+  transition: all 0.2s ease;
+}
+.btn-primary:hover {
+  background-color: #e68a00;
+}
+
+/* Outline Button (White border) */
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background-color: transparent;
+  border: 1px solid white;
+  border-radius: 9999px;
+  font-size: 17px;
+  font-weight: 400;
+  color: white;
+  transition: all 0.2s ease;
+}
+
+/* Text Link Button */
+.btn-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 17px;
+  font-weight: 400;
+  font-family: 'Source Sans Pro', sans-serif;
+  color: #1f2937;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+/* ==================== */
+/* ANIMATIONS           */
+/* ==================== */
+
+/* Scrolling Banner Animation */
 @keyframes scroll {
   0% {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-100%);
+    transform: translateX(-50%);
   }
 }
-
-.font-inter {
-  font-family: theme(--font-family-inter);
+.animate-scroll {
+  animation: scroll 30s linear infinite;
 }
 
-.font-source-sans {
-  font-family: theme(--font-family-source-sans);
+/* Arrow Animation Classes */
+.arrow-animate {
+  transition: all 0.3s ease;
+}
+.arrow-hidden {
+  transform: translateX(-0.5rem);
+  opacity: 0;
+}
+.arrow-visible {
+  transform: translateX(0);
+  opacity: 1;
 }
 
-.font-source-sans-bold {
-  font-family: theme(--font-family-source-sans);
-  font-weight: 700;
+/* ==================== */
+/* SCROLLING BANNER     */
+/* ==================== */
+.scrolling-banner {
+  position: relative;
+  background-color: #ff9900;
+  padding: 1rem 0;
+  overflow: hidden;
+}
+@media (min-width: 768px) {
+  .scrolling-banner {
+    padding: 1.25rem 0;
+  }
+}
+.scrolling-banner-item {
+  display: flex;
+  align-items: center;
+  padding: 0 1rem;
+  white-space: nowrap;
+}
+.scrolling-banner-icon {
+  font-size: 1.5rem;
+  color: black;
+  margin: 0 1.5rem;
+}
+.scrolling-banner-text {
+  font-size: 17px;
+  color: rgba(0, 0, 0, 0.9);
+  margin: 0 1.5rem;
 }
 
-:root {
-  font-family: theme(--font-family-inter);
-  background-color: #050505;
-  color: #fff;
+/* ==================== */
+/* CARD CLASSES         */
+/* ==================== */
+.resource-card {
+  border-radius: 1rem;
+  padding: 2rem;
+  background-color: white;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 388px;
+}
+.resource-card:hover {
+  background-color: #ff9900;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  font-family: inherit;
-  background-color: #050505;
-  color: #fff;
-  -webkit-font-smoothing: antialiased;
-}
-
-#root {
-  min-height: 100vh;
-  background-color: #050505;
-}
-
-/* Scroll offset for fixed header */
-section[id] {
-  scroll-margin-top: 80px;
+/* ==================== */
+/* UNDERLINE ANIMATION  */
+/* ==================== */
+.underline-animate {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  background-color: #1f2937;
+  transition: width 0.3s ease;
 }

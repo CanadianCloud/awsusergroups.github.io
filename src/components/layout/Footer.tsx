@@ -1,18 +1,21 @@
-import awsugLogo from '../../assets/logo_aws_ug.png';
-import discordIcon from '../../assets/social_media/discord.png';
-import linkedinIcon from '../../assets/social_media/linkedin.png';
-import meetupIcon from '../../assets/social_media/meetup.png';
-import youtubeIcon from '../../assets/social_media/youtube.png';
-import instagramIcon from '../../assets/social_media/instagram.png';
-import cloudIcon from '../../assets/social_media/cloud.png';
-import awsdayIcon from '../../assets/social_media/awsday.png';
+import awsugLogo from '@/assets/logo_aws_ug.png';
+import discordIcon from '@/assets/social_media/discord.png';
+import linkedinIcon from '@/assets/social_media/linkedin.png';
+import meetupIcon from '@/assets/social_media/meetup.png';
+import youtubeIcon from '@/assets/social_media/youtube.png';
+import instagramIcon from '@/assets/social_media/instagram.png';
+import cloudIcon from '@/assets/social_media/cloud.png';
+import awsdayIcon from '@/assets/social_media/awsday.png';
 
 export default function Footer() {
-  const socialMediaLinks = [
+  const firstRowLinks = [
     { icon: discordIcon, href: '#', alt: 'Discord' },
     { icon: instagramIcon, href: '#', alt: 'Instagram' },
     { icon: meetupIcon, href: '#', alt: 'Meetup' },
     { icon: youtubeIcon, href: '#', alt: 'YouTube' },
+  ];
+
+  const secondRowLinks = [
     { icon: linkedinIcon, href: '#', alt: 'LinkedIn' },
     { icon: awsdayIcon, href: '#', alt: 'AWS Day' },
     { icon: cloudIcon, href: '#', alt: 'Cloud Summit' },
@@ -29,23 +32,45 @@ export default function Footer() {
               alt="AWS UG Logo" 
               className="h-12 sm:h-14 md:h-16 mb-4 sm:mb-5"
             />
-            <div className="flex gap-2.5 flex-wrap">
-              {socialMediaLinks.map((social, index) => (
-                <a
-                  key={index}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:opacity-80 transition-opacity active:scale-95 min-w-[44px] min-h-[44px] flex items-center justify-center"
-                  aria-label={social.alt}
-                >
-                  <img 
-                    src={social.icon} 
-                    alt={social.alt} 
-                    className="h-7 w-7 sm:h-8 sm:w-8 object-contain"
-                  />
-                </a>
-              ))}
+            <div className="flex flex-col gap-2">
+              {/* First row - 4 icons */}
+              <div className="flex gap-2.5">
+                {firstRowLinks.map((social, index) => (
+                  <a
+                    key={index}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:opacity-80 transition-opacity active:scale-95 min-w-[44px] min-h-[44px] flex items-center justify-center"
+                    aria-label={social.alt}
+                  >
+                    <img 
+                      src={social.icon} 
+                      alt={social.alt} 
+                      className="h-7 w-7 sm:h-8 sm:w-8 object-contain"
+                    />
+                  </a>
+                ))}
+              </div>
+              {/* Second row - 3 icons */}
+              <div className="flex gap-2.5">
+                {secondRowLinks.map((social, index) => (
+                  <a
+                    key={index}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:opacity-80 transition-opacity active:scale-95 min-w-[44px] min-h-[44px] flex items-center justify-center"
+                    aria-label={social.alt}
+                  >
+                    <img 
+                      src={social.icon} 
+                      alt={social.alt} 
+                      className="h-7 w-7 sm:h-8 sm:w-8 object-contain"
+                    />
+                  </a>
+                ))}
+              </div>
             </div>
           </div>
 
@@ -86,7 +111,7 @@ export default function Footer() {
               href="#"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block bg-aws-orange hover:bg-aws-orange-dark text-black font-semibold px-6 sm:px-8 py-3 sm:py-4 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl active:scale-95 text-sm sm:text-base min-h-[48px]"
+              className="inline-block bg-aws-orange hover:bg-aws-orange-dark text-black px-6 sm:px-8 py-3 sm:py-4 rounded-full transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5 active:scale-95 text-sm sm:text-base min-h-[48px]"
             >
               Join Discord Here
             </a>
