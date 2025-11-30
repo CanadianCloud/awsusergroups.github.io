@@ -171,12 +171,62 @@ src/
 │       ├── AnimatedButton.jsx # Reusable button component
 │       ├── ScrollingBanner.jsx# Scrolling banner
 │       ├── SectionHeading.jsx # Section heading
+│       ├── ScrollToTop.jsx    # Scroll to top button
+│       ├── WorldMap.jsx       # Interactive world map
 │       └── index.js           # Shared exports
 ├── assets/                    # Images and media files
+├── data/
+│   └── userGroups.json        # User groups data for map
 ├── App.jsx                    # Main app component
 ├── main.jsx                   # App entry point
 └── index.css                  # Global styles with Tailwind
+
+scripts/
+├── scrapeUserGroups.cjs       # Scrapes user groups from AWS
+├── enhanceUserGroups.cjs      # Enhances data with geocoding
+├── manual-corrections.json    # Manual data corrections
+├── geocode-cache.json         # Forward geocoding cache
+├── reverse-geocode-cache.json # Reverse geocoding cache
+└── url-search-cache.json      # URL search cache
 ```
+
+### 🗺️ User Groups Map Data Pipeline
+
+The interactive world map is powered by a data pipeline that scrapes, geocodes, and enhances AWS User Groups data.
+
+#### Scripts Overview
+
+| Script | Purpose | Usage |
+|--------|---------|-------|
+| `scrapeUserGroups.cjs` | Scrapes user groups from builder.aws.com, geocodes locations | `node scripts/scrapeUserGroups.cjs` |
+| `enhanceUserGroups.cjs` | Adds countries via reverse geocoding, finds missing URLs | `node scripts/enhanceUserGroups.cjs` |
+
+#### Data Files
+
+| File | Purpose |
+|------|---------|
+| `src/data/userGroups.json` | Main data file with user groups |
+| `scripts/manual-corrections.json` | Manual URL overrides, city corrections, exclusions |
+| `scripts/geocode-cache.json` | Cache for forward geocoding (city → coordinates) |
+| `scripts/reverse-geocode-cache.json` | Cache for reverse geocoding (coordinates → country) |
+| `scripts/url-search-cache.json` | Cache for Meetup URL searches |
+
+#### Running the Pipeline
+
+```bash
+# 1. Full scrape from AWS (takes ~15-20 minutes)
+node scripts/scrapeUserGroups.cjs
+
+# 2. Enhance existing data (add countries, find URLs)
+node scripts/enhanceUserGroups.cjs
+```
+
+#### Manual Corrections
+
+Edit `scripts/manual-corrections.json` to:
+- **urlOverrides**: Add known URLs for groups
+- **cityCorrections**: Fix city/country names  
+- **excludeGroups**: Remove invalid/duplicate groups
 
 ### 🤝 Volunteers
 
