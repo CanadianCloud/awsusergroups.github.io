@@ -1,0 +1,29 @@
+{
+  "urlOverrides": {
+    "AWS User Group Tiranë": "https://www.meetup.com/aws-user-group-tirana/",
+    "AWS User Group São Paulo": "https://www.meetup.com/awsusergroupsp/",
+    "AWS User Group Bangladesh": "https://www.meetup.com/aws-user-group-bangladesh/",
+    "AWS User Group Gold Coast": "https://www.meetup.com/aws-gold-coast/",
+    "AWS User Group Belo Horizonte": "https://www.meetup.com/awsbh/",
+    "AWS User Group Florianópolis": "https://www.meetup.com/aws-floripa/",
+    "AWS User Group Goiânia": "https://www.meetup.com/awsgoiania/"
+  },
+  "cityCorrections": {
+    "AWS User Group Security Argentina": {
+      "city": "Buenos Aires",
+      "country": "Argentina"
+    },
+    "AWS User Group Girls Argentina": {
+      "city": "Buenos Aires", 
+      "country": "Argentina"
+    },
+    "AWS User Group Bosnia (Mostar)": {
+      "city": "Mostar",
+      "country": "Bosnia and Herzegovina"
+    }
+  },
+  "excludeGroups": [
+    "AWS User Groups"
+  ],
+  "notes": "This file contains manual corrections for AWS User Groups data that cannot be auto-detected"
+}

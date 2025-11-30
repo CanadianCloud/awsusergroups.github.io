@@ -1,7 +1,6 @@
 ﻿import React from "react";
-import { ScrollingBanner, AnimatedButton } from "../shared";
+import { ScrollingBanner, AnimatedButton, WorldMap } from "../shared";
 import heroBg from "@/assets/hero-bg.jpg";
-import worldMap from "@/assets/world-map.jpg";
 
 export default function Hero() {
   return (
@@ -57,9 +56,9 @@ export default function Hero() {
       <div className="relative py-12 sm:py-16 md:py-20 bg-aws-gray">
         <div className="w-full max-w-[1600px] mx-auto px-8 sm:px-12 md:px-16 lg:px-20">
           <div className="bg-white rounded-3xl p-8 sm:p-12 md:p-16 lg:p-20">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
               {/* Text content */}
-              <div className="space-y-4">
+              <div className="space-y-4 lg:col-span-1">
                 <h2 className="section-title text-2xl sm:text-3xl lg:text-[35px] leading-tight">
                   Discover AWS User Groups<br />
                   Around the World
@@ -74,13 +73,9 @@ export default function Hero() {
               </div>
 
               {/* World map */}
-              <div className="relative">
-                <div className="relative overflow-hidden flex items-center justify-center">
-                  <img 
-                    src={worldMap} 
-                    alt="World Map" 
-                    className="w-full h-auto object-contain"
-                  />
+              <div className="relative lg:col-span-2">
+                <div className="relative overflow-hidden flex items-center justify-center rounded-lg" style={{ minHeight: '500px' }}>
+                  <WorldMap className="w-full h-full" />
                 </div>
               </div>
             </div>

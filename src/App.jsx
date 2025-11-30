@@ -6,6 +6,7 @@ import Features from "./components/sections/Features";
 import FAQs from "./components/sections/FAQs";
 import Resources from "./components/sections/Resources";
 import InstagramFeed from "./components/sections/InstagramFeed";
+import { ScrollToTop } from "./components/shared";
 
 export default function App() {
   return (
@@ -27,6 +28,7 @@ export default function App() {
         <InstagramFeed />
       </main>
       <Footer />
+      <ScrollToTop />
     </div>
   );
 }
