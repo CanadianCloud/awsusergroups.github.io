@@ -4,27 +4,33 @@ import { ScrollingBanner, AnimatedButton, SectionHeading } from "../shared";
 const RESOURCES_DATA = [
   {
     title: ["AWS Community", "Day"],
-    description: "A complete guide to organizing and hosting an AWS Community Day event."
+    description: "A complete guide to organizing and hosting an AWS Community Day event.",
+    link: "https://aws.amazon.com/events/community-day/"
   },
   {
     title: ["Sponsor Outreach", "Email Template"],
-    description: "A professional email template for reaching out to potential event sponsors."
+    description: "A professional email template for reaching out to potential event sponsors.",
+    link: "https://aws.amazon.com/events/sponsorship/"
   },
   {
     title: ["Sponsorship Deck", "Outline"],
-    description: "An outline to help you create a compelling sponsorship proposal."
+    description: "An outline to help you create a compelling sponsorship proposal.",
+    link: "https://aws.amazon.com/partners/marketing/sponsorships/"
   },
   {
     title: ["Code of Conduct", "Template"],
-    description: "Set clear behavior expectations with this code of conduct template."
+    description: "Set clear behavior expectations with this code of conduct template.",
+    link: "https://aws.amazon.com/codeofconduct/"
   },
   {
     title: ["Volunteer Onboarding", "Form"],
-    description: "A simple form to onboard and prepare your event volunteers."
+    description: "A simple form to onboard and prepare your event volunteers.",
+    link: "https://core-docs.s3.amazonaws.com/documents/asset/uploaded_file/194610/Volunteer_Application_Instructions_Web_Version.pdf"
   },
   {
     title: ["Submit Your", "Resources"],
-    description: "Share your event resources and photos with the community (remember to watermark)."
+    description: "Share your event resources and photos with the community (remember to watermark).",
+    link: ""
   }
 ];
 
@@ -40,9 +46,20 @@ function ResourceCard({ resource }) {
         </p>
       </div>
       <div className="flex justify-start">
-        <AnimatedButton variant="link" className="mt-3 bg-transparent">
-          Learn More
-        </AnimatedButton>
+        {resource.link ? (
+          <AnimatedButton 
+            href={resource.link}
+            variant="link" 
+            className="mt-3 bg-transparent"
+            external
+          >
+            Learn More
+          </AnimatedButton>
+        ) : (
+          <AnimatedButton variant="link" className="mt-3 bg-transparent">
+            Learn More
+          </AnimatedButton>
+        )}
       </div>
     </div>
   );
@@ -50,7 +67,7 @@ function ResourceCard({ resource }) {
 
 export default function Resources() {
   return (
-    <section id="resources" className="py-12 sm:py-16 md:py-20 bg-gray-50 cursor-pointer">
+    <section id="resources" className="py-12 sm:py-16 md:py-20 bg-gray-50">
       {/* Scrolling banner above title */}
       <ScrollingBanner />
       

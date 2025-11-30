@@ -9,7 +9,7 @@ export default function InstagramFeed() {
   }));
 
   return (
-    <section id="instagram" className="py-12 sm:py-16 md:py-20 bg-white cursor-pointer">
+    <section id="instagram" className="py-12 sm:py-16 md:py-20 bg-white">
       <div className="w-full">
         {/* Grid de 2 filas x 4 columnas - Pantalla completa */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-0">

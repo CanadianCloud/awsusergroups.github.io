@@ -37,6 +37,11 @@ html, body, #root {
   color: rgba(0, 0, 0, 0.9); 
 }
 
+/* Text Colors */
+.text-aws-orange {
+  color: #ff9900;
+}
+
 /* Background Colors */
 .bg-aws-orange { 
   background-color: #ff9900; 
