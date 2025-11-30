@@ -54,8 +54,8 @@ export default function Sponsors() {
   const allSponsors = [...row1, ...row2, ...row3];
 
   return (
-    <section id="sponsors" className="py-12 sm:py-16 md:py-20 bg-gray-100">
-      <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
+    <section id="sponsors" className="py-12 sm:py-16 md:py-20 bg-gray-100 overflow-visible lg:overflow-x-visible">
+      <div className="container mx-auto px-4 sm:px-6 max-w-7xl lg:overflow-visible">
         {/* Header */}
         <div className="mb-8 sm:mb-12 max-w-2xl">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-3 sm:mb-4">
@@ -66,8 +66,8 @@ export default function Sponsors() {
           </p>
         </div>
 
-        {/* Sponsors Grid - Responsive */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 sm:gap-4 md:gap-5">
+        {/* Sponsors Grid - Mobile & Tablet (hidden on desktop) */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 sm:gap-4 md:gap-5 lg:hidden">
           {allSponsors.map((sponsor, index) => (
             <div
               key={index}
@@ -80,6 +80,68 @@ export default function Sponsors() {
               />
             </div>
           ))}
+        </div>
+
+        {/* Desktop Layout - 3 Rows (hidden on mobile/tablet) */}
+        <div className="hidden lg:block space-y-5">
+          {/* Container for Rows 1 and 3 - Constrained width */}
+          <div className="max-w-7xl mx-auto">
+            {/* Row 1 - 6 sponsors */}
+            <div className="grid grid-cols-6 gap-5">
+              {row1.map((sponsor, index) => (
+                <div
+                  key={index}
+                  className="flex items-center justify-center px-6 py-5 bg-white rounded-3xl shadow-sm hover:shadow-md transition-shadow min-h-[100px]"
+                >
+                  <img
+                    src={sponsor.logo}
+                    alt={sponsor.name}
+                    className="h-auto max-h-12 w-full object-contain"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Row 2 - 7 sponsors (largest row with 5% overflow on both sides) */}
+          {/* Wrapper to break out of container padding and allow overflow */}
+          <div className="relative -mx-6">
+            <div className="max-w-7xl mx-auto relative">
+              <div className="w-[110%] left-1/2 -translate-x-1/2 relative grid grid-cols-7 gap-5">
+                {row2.map((sponsor, index) => (
+                  <div
+                    key={index}
+                    className="flex items-center justify-center px-6 py-5 bg-white rounded-3xl shadow-sm hover:shadow-md transition-shadow min-h-[100px]"
+                  >
+                    <img
+                      src={sponsor.logo}
+                      alt={sponsor.name}
+                      className="h-auto max-h-12 w-full object-contain"
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Container for Rows 1 and 3 - Constrained width */}
+          <div className="max-w-7xl mx-auto">
+            {/* Row 3 - 6 sponsors */}
+            <div className="grid grid-cols-6 gap-5">
+              {row3.map((sponsor, index) => (
+                <div
+                  key={index}
+                  className="flex items-center justify-center px-6 py-5 bg-white rounded-3xl shadow-sm hover:shadow-md transition-shadow min-h-[100px]"
+                >
+                  <img
+                    src={sponsor.logo}
+                    alt={sponsor.name}
+                    className="h-auto max-h-12 w-full object-contain"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>
