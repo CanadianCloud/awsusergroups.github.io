@@ -30,7 +30,7 @@ function HeroBanner() {
           <span className="text-white">User Groups </span>
           <span className="text-aws-orange">Worldwide</span>
         </h1>
-        <p className="body-text text-white mb-6 md:mb-8">
+        <p className="text-white mb-6 md:mb-8">
           Tools, guidance, and community support for leaders everywhere.
         </p>
         <div className="flex flex-col gap-3 w-full mb-10">
