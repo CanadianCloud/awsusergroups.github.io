@@ -67,17 +67,20 @@ function ResourceCard({ resource }) {
 
 export default function Resources() {
   return (
-    <section id="resources" className="py-12 sm:py-16 md:py-20 bg-gray-50">
+    <section className="py-12 sm:py-16 md:py-20 bg-gray-50">
       {/* Scrolling banner above title */}
       <ScrollingBanner />
       
       <div className="w-full max-w-6xl mx-auto px-4 sm:px-6">
         <div className="mt-24">
-          <SectionHeading
-            title="Resources for Leaders"
-            subtitle="These resources are here to help community leaders plan and run successful events"
-            className="mt-12"
-          />
+          {/* Scroll anchor wraps the heading */}
+          <div id="resources">
+            <SectionHeading
+              title="Resources for Leaders"
+              subtitle="These resources are here to help community leaders plan and run successful events"
+              className="mt-12"
+            />
+          </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-32">

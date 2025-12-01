@@ -36,10 +36,34 @@ function MapBoundsController({ userGroups }) {
   return null;
 }
 
+// Mobile touch handler - enables better touch interaction
+function MobileInteractionHandler() {
+  const map = useMap();
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  useEffect(() => {
+    if (isMobile) {
+      // Enable touch zoom on mobile for better UX
+      map.touchZoom.enable();
+      map.dragging.enable();
+    }
+  }, [map, isMobile]);
+
+  return null;
+}
+
 export default function WorldMap({ className = '' }) {
   const [userGroups, setUserGroups] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     // Load user groups data
@@ -66,9 +90,16 @@ export default function WorldMap({ className = '' }) {
     loadUserGroups();
   }, []);
 
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   if (loading) {
     return (
-      <div className={`flex items-center justify-center bg-gray-100 rounded-lg ${className}`} style={{ minHeight: '500px' }}>
+      <div className={`flex items-center justify-center bg-gray-100 rounded-lg ${className}`} style={{ minHeight: '300px' }}>
         <div className="text-gray-500">Loading map...</div>
       </div>
     );
@@ -76,7 +107,7 @@ export default function WorldMap({ className = '' }) {
 
   if (error) {
     return (
-      <div className={`flex items-center justify-center bg-gray-100 rounded-lg ${className}`} style={{ minHeight: '500px' }}>
+      <div className={`flex items-center justify-center bg-gray-100 rounded-lg ${className}`} style={{ minHeight: '300px' }}>
         <div className="text-red-500">{error}</div>
       </div>
     );
@@ -85,14 +116,14 @@ export default function WorldMap({ className = '' }) {
   const awsMarkerIcon = createAwsMarkerIcon();
 
   return (
-    <div className={`relative rounded-lg overflow-hidden ${className}`} style={{ minHeight: '500px', zIndex: 0 }}>
+    <div className={`relative rounded-lg overflow-hidden ${className}`} style={{ height: '100%', minHeight: '300px', zIndex: 0 }}>
       <MapContainer
         center={[25, 10]}
-        zoom={2.3}
-        style={{ height: '100%', width: '100%', minHeight: '500px', zIndex: 0 }}
+        zoom={isMobile ? 1.5 : 2}
+        style={{ height: '100%', width: '100%', zIndex: 0 }}
         scrollWheelZoom={false}
         zoomControl={true}
-        minZoom={2}
+        minZoom={1}
         maxZoom={10}
       >
         <TileLayer
@@ -132,12 +163,20 @@ export default function WorldMap({ className = '' }) {
         ))}
         
         <MapBoundsController userGroups={userGroups} />
+        <MobileInteractionHandler />
       </MapContainer>
       
       {/* Group count badge */}
-      <div className="absolute bottom-4 left-4 bg-[#232F3E] text-white px-3 py-1.5 rounded-full text-sm font-medium shadow-lg z-[1000]">
+      <div className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4 bg-[#232F3E] text-white px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-full text-xs sm:text-sm font-medium shadow-lg z-[1000]">
         {userGroups.length} User Groups
       </div>
+      
+      {/* Mobile hint */}
+      {isMobile && (
+        <div className="absolute top-3 right-3 bg-black/60 text-white px-2 py-1 rounded text-xs z-[1000] pointer-events-none animate-pulse">
+          Pinch to zoom
+        </div>
+      )}
     </div>
   );
 }

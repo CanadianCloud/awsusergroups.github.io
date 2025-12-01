@@ -44,7 +44,7 @@ export default function FeaturedUserGroup() {
                 AWS User Group Vancouver brings together cloud enthusiasts, developers, and tech professionals in the Vancouver area to learn, share, and collaborate on all things AWS. With monthly meetups, workshops, and networking events, the community provides a space for members of all skill levels to explore AWS services, exchange ideas, and grow their cloud expertise.
               </p>
               <AnimatedButton 
-                href="https://awsusergroups.com"
+                href="https://awscanada.ca/"
                 variant="primary"
                 external
                 className="mt-6"

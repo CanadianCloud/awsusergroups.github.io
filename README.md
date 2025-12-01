@@ -156,24 +156,24 @@ npm run dev -- --port 3000
 src/
 ├── components/
 │   ├── layout/
-│   │   ├── Header.jsx         # Main navigation
-│   │   ├── Footer.jsx         # Footer component
-│   │   └── Footer.tsx         # Footer component (TypeScript)
+│   │   ├── Header.jsx         # Main navigation with scroll spy
+│   │   └── Footer.jsx         # Footer component
 │   ├── sections/
-│   │   ├── Hero.jsx           # Hero banner
-│   │   ├── Features.jsx       # Featured content
-│   │   ├── FAQs.jsx           # FAQ section
+│   │   ├── HeroBanner.jsx     # Hero banner with CTA buttons
+│   │   ├── DiscoverSection.jsx# AWS User Groups world map section
+│   │   ├── FeaturedUserGroup.jsx # Featured user group showcase
+│   │   ├── BuildGenie.jsx     # Build Genie section
+│   │   ├── FAQs.jsx           # FAQ section (Leaders Insights)
+│   │   ├── Resources.jsx      # Resources for Leaders section
 │   │   ├── InstagramFeed.jsx  # Instagram feed
-│   │   ├── Resources.jsx      # Resources section
-│   │   ├── Testimonials.jsx   # Testimonials
-│   │   └── index.ts           # Section exports
+│   │   └── Testimonials.jsx   # Testimonials
 │   └── shared/
-│       ├── AnimatedButton.jsx # Reusable button component
-│       ├── ScrollingBanner.jsx# Scrolling banner
-│       ├── SectionHeading.jsx # Section heading
+│       ├── AnimatedButton.jsx # Reusable animated button
+│       ├── ScrollingBanner.jsx# Scrolling banner with keywords
+│       ├── SectionHeading.jsx # Section heading component
 │       ├── ScrollToTop.jsx    # Scroll to top button
 │       ├── WorldMap.jsx       # Interactive world map
-│       └── index.js           # Shared exports
+│       └── index.js           # Shared component exports
 ├── assets/                    # Images and media files
 ├── data/
 │   └── userGroups.json        # User groups data for map
@@ -189,6 +189,17 @@ scripts/
 ├── reverse-geocode-cache.json # Reverse geocoding cache
 └── url-search-cache.json      # URL search cache
 ```
+
+### 🧭 Navigation Structure
+
+| Nav Link | Section ID | Component |
+|----------|------------|-----------|
+| Home | `#hero` | `HeroBanner.jsx` |
+| AWS User Groups | `#user-groups` | `DiscoverSection.jsx` |
+| Featured AWS UG | `#featured` | `FeaturedUserGroup.jsx` |
+| Build Genie | `#build` | `BuildGenie.jsx` |
+| Leaders Insights | `#insights` | `FAQs.jsx` |
+| Resources for Leaders | `#resources` | `Resources.jsx` |
 
 ### 🗺️ User Groups Map Data Pipeline
 

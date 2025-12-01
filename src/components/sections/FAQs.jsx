@@ -128,7 +128,7 @@ export default function FAQs() {
   };
 
   return (
-    <section id="faqs" className="py-12 sm:py-16 md:py-20 bg-gray-50">
+    <section id="insights" className="py-12 sm:py-16 md:py-20 bg-gray-50">
       <div className="w-full max-w-4xl mx-auto px-4 sm:px-6">
         <SectionHeading
           title="AWS User Group Leaders - Tips & Tricks"

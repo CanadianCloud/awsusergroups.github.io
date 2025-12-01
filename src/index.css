@@ -7,11 +7,16 @@
 /* ==================== */
 html { 
   scroll-behavior: smooth;
-  scroll-padding-top: 80px; /* Account for sticky header on mobile */
+  scroll-padding-top: 90px; /* Account for sticky header on mobile */
 }
 @media (min-width: 640px) {
   html {
-    scroll-padding-top: 100px; /* Larger offset for tablet/desktop */
+    scroll-padding-top: 110px; /* Larger offset for tablet */
+  }
+}
+@media (min-width: 1024px) {
+  html {
+    scroll-padding-top: 120px; /* Larger offset for desktop */
   }
 }
 html, body, #root { 
