@@ -7,6 +7,12 @@
 /* ==================== */
 html { 
   scroll-behavior: smooth;
+  scroll-padding-top: 80px; /* Account for sticky header on mobile */
+}
+@media (min-width: 640px) {
+  html {
+    scroll-padding-top: 100px; /* Larger offset for tablet/desktop */
+  }
 }
 html, body, #root { 
   height: 100%; 
@@ -255,4 +261,19 @@ html, body, #root {
 
 .leaflet-container {
   font-family: 'Inter', sans-serif;
+  z-index: 0 !important;
+}
+
+/* Ensure Leaflet controls stay below the header */
+.leaflet-top,
+.leaflet-bottom {
+  z-index: 400 !important;
+}
+
+.leaflet-pane {
+  z-index: 300 !important;
+}
+
+.leaflet-control {
+  z-index: 400 !important;
 }

@@ -85,11 +85,11 @@ export default function WorldMap({ className = '' }) {
   const awsMarkerIcon = createAwsMarkerIcon();
 
   return (
-    <div className={`relative rounded-lg overflow-hidden ${className}`} style={{ minHeight: '500px' }}>
+    <div className={`relative rounded-lg overflow-hidden ${className}`} style={{ minHeight: '500px', zIndex: 0 }}>
       <MapContainer
         center={[25, 10]}
         zoom={2.3}
-        style={{ height: '100%', width: '100%', minHeight: '500px' }}
+        style={{ height: '100%', width: '100%', minHeight: '500px', zIndex: 0 }}
         scrollWheelZoom={false}
         zoomControl={true}
         minZoom={2}

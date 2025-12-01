@@ -9,10 +9,10 @@ export default function InstagramFeed() {
   }));
 
   return (
-    <section id="instagram" className="py-12 sm:py-16 md:py-20 bg-white">
-      <div className="w-full">
+    <section id="instagram" className="py-16 sm:py-20 md:py-24 bg-white">
+      <div className="w-full px-4 sm:px-6 md:px-8 lg:px-12">
         {/* Grid de 2 filas x 4 columnas - Pantalla completa */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-0">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
           {instagramPosts.map((post, index) => (
             index === 0 ? (
               <div key={index} className="relative aspect-square overflow-hidden bg-white flex items-center justify-center p-0">

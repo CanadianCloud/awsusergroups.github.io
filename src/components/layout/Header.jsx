@@ -1,7 +1,8 @@
-﻿import React, { useState } from "react";
+﻿import React, { useState, useEffect } from "react";
 import awsGlobalLogo from "@/assets/aws-global-logo.png";
 
 const NAV_LINKS = [
+  { href: "#hero", label: "Home" },
   { href: "#user-groups", label: "AWS User Groups" },
   { href: "#featured", label: "Featured AWS UG" },
   { href: "#build", label: "Build Genie" },
@@ -10,14 +11,15 @@ const NAV_LINKS = [
 ];
 
 function NavLink({ href, label, onClick, isMobile = false }) {
-  const baseClasses = "text-white transition-all duration-200 hover:underline hover:underline-offset-4";
-  const mobileClasses = isMobile ? "py-2" : "";
+  const baseClasses = "text-white transition-all duration-200 hover:text-aws-orange";
+  const desktopClasses = !isMobile ? "text-sm font-medium tracking-wide whitespace-nowrap px-1" : "";
+  const mobileClasses = isMobile ? "py-3 text-lg" : "";
   
   return (
     <a 
       href={href}
       onClick={onClick}
-      className={`${baseClasses} ${mobileClasses}`}
+      className={`${baseClasses} ${desktopClasses} ${mobileClasses}`}
     >
       {label}
     </a>
@@ -26,22 +28,34 @@ function NavLink({ href, label, onClick, isMobile = false }) {
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const closeMenu = () => setIsMenuOpen(false);
 
   return (
-    <header className="absolute top-0 left-0 right-0 z-50 bg-transparent pt-6 font-source">
-      <div className="w-full flex items-center justify-between h-16 px-6 sm:px-8 md:px-[70px]">
-        <div className="flex items-center">
+    <header className={`fixed top-0 left-0 right-0 z-[1000] pt-4 sm:pt-6 font-source transition-all duration-300 ${
+      isScrolled || isMenuOpen ? 'bg-black/90 backdrop-blur-sm' : 'bg-transparent'
+    }`}>
+      <div className="w-full flex items-center justify-between h-14 sm:h-16 px-4 sm:px-8 md:px-12 lg:px-16">
+        <div className="flex items-center shrink-0">
           <img 
             src={awsGlobalLogo} 
             alt="AWS Global" 
-            className="h-12 sm:h-14 w-auto"
+            className="h-10 sm:h-14 w-auto"
           />
         </div>
         
         {/* Desktop Navigation */}
-        <nav className="hidden lg:flex items-center space-x-10 body-text">
+        <nav className="hidden lg:flex items-center gap-6 xl:gap-8 ml-12">
           {NAV_LINKS.map((link) => (
             <NavLink key={link.href} href={link.href} label={link.label} />
           ))}
