@@ -121,7 +121,6 @@ html, body, #root {
   background-color: #ff9900;
   border-radius: 9999px;
   font-size: 17px;
-  font-weight: 400;
   color: rgba(0, 0, 0, 0.9);
   transition: all 0.2s ease;
 }
@@ -139,7 +138,6 @@ html, body, #root {
   border: 1px solid white;
   border-radius: 9999px;
   font-size: 17px;
-  font-weight: 400;
   color: white;
   transition: all 0.2s ease;
 }
@@ -150,7 +148,6 @@ html, body, #root {
   align-items: center;
   gap: 0.5rem;
   font-size: 17px;
-  font-weight: 400;
   font-family: 'Source Sans Pro', sans-serif;
   color: #1f2937;
   position: relative;

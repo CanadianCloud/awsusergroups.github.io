@@ -34,7 +34,7 @@ export default function AnimatedButton({
 
   return (
     <Component
-      className={`${variants[variant]} ${className}`}
+      className={`${variants[variant]} font-semibold ${className}`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       onClick={onClick}

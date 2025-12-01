@@ -5,7 +5,7 @@ import awsGlobalLogo from "@/assets/aws-global-logo.png";
 const FOOTER_LINKS = [
   { href: "#user-groups", label: "AWS User Groups" },
   { href: "#featured", label: "Featured AWS UG" },
-  { href: "#build-genie", label: "Build Genie" },
+  { href: "#build", label: "Build Genie" },
   { href: "#insights", label: "Leaders Insights" }
 ];
 
