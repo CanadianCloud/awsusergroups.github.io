@@ -5,17 +5,17 @@ const RESOURCES_DATA = [
   {
     title: ["AWS Community", "Day"],
     description: "A complete guide to organizing and hosting an AWS Community Day event.",
-    link: "https://aws.amazon.com/events/community-day/"
+    link: "/assets/pdfs/how_to_run_an_aws_community_day.pdf"
   },
   {
     title: ["Sponsor Outreach", "Email Template"],
     description: "A professional email template for reaching out to potential event sponsors.",
-    link: "https://aws.amazon.com/events/sponsorship/"
+    link: "/assets/pdfs/sponsorship_email_templates_for_aws_community_events.pdf"
   },
   {
     title: ["Sponsorship Deck", "Outline"],
     description: "An outline to help you create a compelling sponsorship proposal.",
-    link: "https://aws.amazon.com/partners/marketing/sponsorships/"
+    link: "/assets/pdfs/sponsorship_deck_prospectus_outline.pdf"
   },
   {
     title: ["Code of Conduct", "Template"],
@@ -23,14 +23,14 @@ const RESOURCES_DATA = [
     link: "https://aws.amazon.com/codeofconduct/"
   },
   {
-    title: ["Volunteer Onboarding", "Form"],
+    title: ["Forms for Sponsors,", "Speakers, and Volunteers"],
     description: "A simple form to onboard and prepare your event volunteers.",
-    link: "https://core-docs.s3.amazonaws.com/documents/asset/uploaded_file/194610/Volunteer_Application_Instructions_Web_Version.pdf"
+    link: "/assets/pdfs/forms_for_sponsors_speakers_and_volunteers.pdf"
   },
   {
     title: ["Submit Your", "Resources"],
     description: "Share your event resources and photos with the community (remember to watermark).",
-    link: ""
+    link: "https://tally.so/r/pbee4b"
   }
 ];
 
