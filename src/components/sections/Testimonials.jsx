@@ -70,7 +70,7 @@ export default function Testimonials() {
         </div>
 
         <div className="text-center mt-[-100px]">
-          <button className="inline-block px-6 py-3 text-gray-900 font-semibold border-b-2 border-gray-900" style={{ fontFamily: 'Source Sans Pro, sans-serif' }}>
+          <button className="inline-block px-6 py-3 text-gray-900 font-medium border-b-2 border-gray-900" style={{ fontFamily: 'Source Sans Pro, sans-serif' }}>
             Share Your UG Resources with Leaders →
           </button>
         </div>

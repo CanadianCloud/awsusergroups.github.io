@@ -15,6 +15,7 @@ export default function AnimatedButton({
   variant = "primary", 
   external = false,
   className = "",
+  style,
   onClick
 }) {
   const [isHovered, setIsHovered] = useState(false);
@@ -34,13 +35,14 @@ export default function AnimatedButton({
 
   return (
     <Component
-      className={`${variants[variant]} font-semibold ${className}`}
+      className={`${variants[variant]} font-medium whitespace-nowrap ${className}`}
+      style={style}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       onClick={onClick}
       {...linkProps}
     >
-      <span>{children}</span>
+      <span className="flex-1 text-center">{children}</span>
       <span 
         className={`arrow-animate ${isHovered ? "arrow-visible" : "arrow-hidden"}`}
       >

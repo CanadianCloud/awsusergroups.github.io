@@ -5,7 +5,7 @@ const NAV_LINKS = [
   { href: "#hero", label: "Home" },
   { href: "#user-groups", label: "AWS User Groups" },
   { href: "#featured", label: "Featured AWS UG" },
-  { href: "#build", label: "Build Genie" },
+  { href: "#build", label: "Tools" },
   { href: "#insights", label: "Leaders Insights" },
   { href: "#resources", label: "Resources for Leaders" }
 ];
@@ -14,7 +14,7 @@ function NavLink({ href, label, onClick, isMobile = false, isActive = false }) {
   const baseClasses = "transition-all duration-200 hover:text-aws-orange";
   const activeClasses = isActive ? "text-aws-orange" : "text-white";
   const desktopClasses = !isMobile ? "text-sm font-medium tracking-wide whitespace-nowrap px-1 pb-1" : "";
-  const mobileClasses = isMobile ? "py-3 text-lg" : "";
+  const mobileClasses = isMobile ? "py-3 text-lg font-medium" : "";
   const underlineClasses = isActive && !isMobile ? "border-b-2 border-aws-orange" : "border-b-2 border-transparent";
 
   const handleClick = (e) => {

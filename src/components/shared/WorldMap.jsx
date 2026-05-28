@@ -2,20 +2,16 @@ import React, { useEffect, useState } from 'react';
 import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
+import markerImg from '@/assets/points.png';
 
-// AWS orange marker icon
+// AWS dark marker icon (use asset image)
 const createAwsMarkerIcon = () => {
-  return L.divIcon({
-    className: 'aws-marker',
-    html: `
-      <svg width="24" height="32" viewBox="0 0 24 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M12 0C5.373 0 0 5.373 0 12c0 9 12 20 12 20s12-11 12-20c0-6.627-5.373-12-12-12z" fill="#FF9900"/>
-        <circle cx="12" cy="12" r="5" fill="#232F3E"/>
-      </svg>
-    `,
-    iconSize: [24, 32],
-    iconAnchor: [12, 32],
-    popupAnchor: [0, -32],
+  return L.icon({
+    iconUrl: markerImg,
+    iconSize: [16, 16],
+    iconAnchor: [8, 16],
+    popupAnchor: [0, -12],
+    className: 'aws-marker-icon',
   });
 };
 
@@ -73,12 +69,45 @@ export default function WorldMap({ className = '' }) {
         const data = response.default || response;
         
         // Filter to only groups with valid coordinates
-        const validGroups = (data.userGroups || []).filter(
+        const allValidGroups = (data.userGroups || []).filter(
           group => group.lat && group.lng && 
                    !isNaN(group.lat) && !isNaN(group.lng)
         );
-        
-        setUserGroups(validGroups);
+
+        // Reference points approximating the image (lat, lng)
+        const referencePoints = [
+          [44.0, -79.0],   // Eastern Canada / Toronto area
+          [29.0, -95.0],   // Central US (Texas)
+          [40.7, -74.0],   // New York
+          [-34.6, -58.4],  // Buenos Aires
+          [-23.5, -46.6],  // São Paulo
+          [-1.45, -48.47], // Belém / northern Brazil
+          [51.5, -0.12],   // London
+          [40.4, -3.7],    // Madrid
+          [52.52, 13.41],  // Berlin
+          [28.6, 77.2],    // New Delhi
+          [-33.87, 151.2], // Sydney
+        ];
+
+        // Haversine distance in km
+        const toRad = v => (v * Math.PI) / 180;
+        const distanceKm = (a, b) => {
+          const lat1 = a[0]; const lon1 = a[1];
+          const lat2 = b[0]; const lon2 = b[1];
+          const R = 6371; // km
+          const dLat = toRad(lat2 - lat1);
+          const dLon = toRad(lon2 - lon1);
+          const radLat1 = toRad(lat1);
+          const radLat2 = toRad(lat2);
+          const sinDLat = Math.sin(dLat/2);
+          const sinDLon = Math.sin(dLon/2);
+          const aHarv = sinDLat*sinDLat + sinDLon*sinDLon * Math.cos(radLat1) * Math.cos(radLat2);
+          const c = 2 * Math.atan2(Math.sqrt(aHarv), Math.sqrt(1 - aHarv));
+          return R * c;
+        };
+
+        // Show all valid groups so the map markers reflect the full dataset
+        setUserGroups(allValidGroups);
         setLoading(false);
       } catch (err) {
         console.error('Failed to load user groups:', err);

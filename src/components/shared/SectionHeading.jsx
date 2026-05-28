@@ -12,11 +12,12 @@ export default function SectionHeading({
   title, 
   subtitle, 
   centered = true,
-  className = "" 
+  className = "",
+  titleClassName = ""
 }) {
   return (
     <div className={`mb-8 md:mb-12 ${centered ? "text-center" : ""} ${className}`}>
-      <h2 className="section-title">{title}</h2>
+      <h2 className={`section-title ${titleClassName}`}>{title}</h2>
       {subtitle && (
         <p className="body-text mt-3">{subtitle}</p>
       )}

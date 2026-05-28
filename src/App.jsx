@@ -4,7 +4,7 @@ import Footer from "./components/layout/Footer";
 import HeroBanner from "./components/sections/HeroBanner";
 import DiscoverSection from "./components/sections/DiscoverSection";
 import FeaturedUserGroup from "./components/sections/FeaturedUserGroup";
-import BuildGenie from "./components/sections/BuildGenie";
+import CommunityBuiltResources from "./components/sections/CommunityBuiltResources";
 import FAQs from "./components/sections/FAQs";
 import Resources from "./components/sections/Resources";
 import InstagramFeed from "./components/sections/InstagramFeed";
@@ -21,7 +21,7 @@ export default function App() {
         <ScrollingBanner />
         <DiscoverSection />
         <FeaturedUserGroup />
-        <BuildGenie />
+        <CommunityBuiltResources />
         <FAQs />
         <Resources />
         <InstagramFeed />

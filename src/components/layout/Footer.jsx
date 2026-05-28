@@ -5,7 +5,7 @@ import awsGlobalLogo from "@/assets/aws-global-logo.png";
 const FOOTER_LINKS = [
   { href: "#user-groups", label: "AWS User Groups" },
   { href: "#featured", label: "Featured AWS UG" },
-  { href: "#build", label: "Build Genie" },
+  { href: "#build", label: "Resources" },
   { href: "#insights", label: "Leaders Insights" }
 ];
 
@@ -44,7 +44,7 @@ export default function Footer() {
               <img 
                 src={awsGlobalLogo} 
                 alt="AWS Global" 
-                className="h-12 sm:h-16 lg:h-20 w-auto"
+                className="h-16 sm:h-16 lg:h-20 w-auto"
               />
             </div>
           </div>
