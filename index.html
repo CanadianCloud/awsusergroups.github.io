@@ -2,73 +2,24 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/aws-icon.svg?v=2" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AWS User Groups</title>
-    <!-- Critical CSS for loader - prevents FOUC -->
-    <style>
-      /* Hide root until app is ready */
-      #root {
-        opacity: 0;
-        transition: opacity 0.3s ease-in-out;
-      }
-      #root.app-ready {
-        opacity: 1;
-      }
-
-      /* Loader container */
-      #app-loader {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: #ffffff;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        z-index: 9999;
-        transition: opacity 0.4s ease-out, visibility 0.4s ease-out;
-      }
-      #app-loader.loader-hidden {
-        opacity: 0;
-        visibility: hidden;
-      }
-
-      /* Spinning circle */
-      .loader-spinner {
-        width: 50px;
-        height: 50px;
-        border: 4px solid #f3f3f3;
-        border-top: 4px solid #ff9900;
-        border-radius: 50%;
-        animation: spin 1s linear infinite;
-      }
-
-      /* Optional loader text */
-      .loader-text {
-        margin-top: 16px;
-        font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, sans-serif;
-        font-size: 14px;
-        color: #1C1C1C;
-        letter-spacing: 0.5px;
-      }
-
-      @keyframes spin {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
-      }
-    </style>
+    <meta name="theme-color" content="#ff9900" />
+    <meta name="description" content="A home for AWS user group community leaders. Find practical event resources, community tools, shared advice, and AWS user groups around the world." />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href="https://awsusergroups.com/" />
+    <meta property="og:title" content="AWS User Groups | A home for community leaders" />
+    <meta property="og:description" content="Behind every great user group, there’s someone like you. Resources, tools, and shared experience for AWS community leaders." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://awsusergroups.com/" />
+    <meta property="og:image" content="https://awsusergroups.com/assets/networking-event-D-8cZ4pO.jpg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;650;700;750;800;850;900&display=swap" rel="stylesheet" />
+    <title>AWS User Groups | A home for community leaders</title>
   </head>
   <body>
-    <!-- Loading screen -->
-    <div id="app-loader">
-      <div class="loader-spinner"></div>
-      <p class="loader-text">Loading...</p>
-    </div>
-    
     <div id="root"></div>
+    <noscript><p>AWS User Groups brings community leaders together. Please enable JavaScript to explore our resources, tools, and directory, or <a href="https://builder.aws.com/community/user-groups">find your AWS user group here</a>.</p></noscript>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

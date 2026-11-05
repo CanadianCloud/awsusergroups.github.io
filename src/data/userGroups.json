@@ -1,7 +1,7 @@
 {
   "lastUpdated": "2025-11-30T21:16:18.974Z",
   "source": "https://builder.aws.com/community/user-groups",
-  "totalGroups": 341,
+  "totalGroups": 342,
   "userGroups": [
     {
       "name": "AWS User Group Tiranë",
@@ -2613,10 +2613,10 @@
     },
     {
       "name": "AWS User Group Women Bay Area",
-      "city": "Women Bay Area",
-      "country": "Canada",
-      "lat": 54.382526,
-      "lng": -128.5316434,
+      "city": "San Francisco Bay Area",
+      "country": "United States",
+      "lat": 37.7749,
+      "lng": -122.4194,
       "url": "https://www.meetup.com/aws-women-bay-area/"
     },
     {
@@ -2730,6 +2730,14 @@
       "lat": null,
       "lng": null,
       "url": "https://www.meetup.com/aws-user-group-harare-zimbabawe/"
+    },
+    {
+      "name": "AWS User Group Vancouver",
+      "city": "Vancouver",
+      "country": "Canada",
+      "lat": 49.2827,
+      "lng": -123.1207,
+      "url": "https://awscanada.ca/"
     }
   ]
 }
