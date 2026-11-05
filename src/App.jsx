@@ -2,7 +2,15 @@ import { lazy, Suspense, useMemo, useState } from 'react';
 import { ArrowRight, ArrowUpRight, BookOpen, CalendarDays, ChevronDown, ChevronLeft, ChevronRight, Globe2, HeartHandshake, Lightbulb, MapPin, Menu, MessageCircle, Search, ShieldCheck, Sparkles, UsersRound, X, Presentation } from 'lucide-react';
 import communityDay from './assets/community-day.jpg';
 import networkingEvent from './assets/networking-event.jpg';
-import speaker from './assets/hero-bg.jpg';
+import communitySpeaker from './assets/community/speaker.jpg';
+import communityTeam from './assets/community/community-team.jpg';
+import communityFriends from './assets/community/friends.jpg';
+import communityConversation from './assets/community/conversation.jpg';
+import communityRoom from './assets/community/community-day-room.jpg';
+import communityConnections from './assets/community/connections.jpg';
+import communityWelcome from './assets/community/welcome.jpg';
+import communityLearning from './assets/community/learning-together.jpg';
+import communityBuilders from './assets/community/community-builders.jpg';
 import buildGenie from './assets/build-genie-logo.png';
 import feedbackFeijoa from './assets/feedback feijoa.png';
 import directory from './data/userGroups.json';
@@ -50,9 +58,11 @@ function Hero() {
       <div className="hero-actions"><a className="button" href="#resources">Resources for community leaders <ArrowRight size={20} /></a><a className="text-link" href="#user-groups">Discover AWS user groups <ArrowUpRight size={19} /></a></div>
     </div>
     <div className="community-mosaic" aria-label="People and moments from the community">
-      <figure className="mosaic-main"><img src={networkingEvent} alt="AWS Community Day attendees connecting and sharing ideas in Vancouver" fetchPriority="high" /><figcaption>Connections that matter</figcaption></figure>
-      <figure className="mosaic-event"><img src={communityDay} alt="The AWS Community Day Vancouver stage and community audience" /><figcaption>Space to learn</figcaption></figure>
-      <figure className="mosaic-speaker"><img src={speaker} alt="A speaker sharing knowledge with a community audience" /><figcaption>Knowledge to share</figcaption></figure>
+      <figure className="mosaic-lead"><img src={communitySpeaker} alt="A community speaker sharing practical AWS knowledge on stage" fetchPriority="high" /><figcaption>Share what you know</figcaption></figure>
+      <figure className="mosaic-team"><img src={communityTeam} alt="Community members coming together at AWS Community Day" /><figcaption>Bring people together</figcaption></figure>
+      <figure className="mosaic-conversation"><img src={communityConversation} alt="People exchanging ideas during an AWS community event" /><figcaption>Start a conversation</figcaption></figure>
+      <figure className="mosaic-friends"><img src={communityFriends} alt="A group of friends connecting at AWS Community Day" /><figcaption>Find your people</figcaption></figure>
+      <figure className="mosaic-room"><img src={communityRoom} alt="An audience gathered to learn at AWS Community Day Vancouver" /><figcaption>Keep learning together</figcaption></figure>
     </div>
     <div className="purpose-strip wrap">
       <h2>Help for every<br /> part of leading</h2>
@@ -83,9 +93,20 @@ function Tools() {
     </div>
   </div></section>;
 }
+function CommunityMoments() {
+  return <section className="moments-section" aria-labelledby="moments-title"><div className="wrap">
+    <div className="moments-heading"><div><p className="eyebrow">This is what community looks like</p><h2 id="moments-title">Real people. Shared curiosity.</h2></div><p>The welcome at the door. The idea that sticks.<br /> The conversation that becomes a friendship.</p></div>
+    <div className="moments-grid">
+      <figure><img src={communityWelcome} alt="Community Day badges ready to welcome attendees" loading="lazy" /><figcaption>A warm welcome</figcaption></figure>
+      <figure><img src={communityConnections} alt="Community members meeting and talking between sessions" loading="lazy" /><figcaption>A new connection</figcaption></figure>
+      <figure><img src={communityLearning} alt="A packed audience listening and learning together" loading="lazy" /><figcaption>A shared discovery</figcaption></figure>
+      <figure><img src={communityBuilders} alt="Community members together at AWS Community Day Vancouver" loading="lazy" /><figcaption>A reason to come back</figcaption></figure>
+    </div>
+  </div></section>;
+}
 function Insights() {
-  return <section id="insights" className="section insights-section"><div className="wrap insights-grid"><div className="insights-intro"><p className="eyebrow">From one leader to another</p><h2>You don’t have to<br /> figure it all out<br /> <span className="underlined">on your own.</span></h2><p>Finding speakers. Supporting volunteers. Keeping people coming back. Explore practical advice shared by AWS user group leaders.</p><ExternalLink className="text-link" href={contribute}>Share your own advice <ArrowUpRight size={19} /></ExternalLink><div className="leader-note"><MessageCircle aria-hidden="true" /><p>The best resource is often someone who’s been there.</p></div></div>
-    <div className="insights-list">{insights.map(({ question, answer }, i) => <details className="insight" key={question}><summary><span className="question-number">{String(i + 1).padStart(2, '0')}</span><span>{question}</span><ChevronDown size={19} aria-hidden="true" /></summary><div className="insight-answer">{answer}</div></details>)}</div>
+  return <section id="insights" className="section insights-section"><div className="wrap insights-grid"><div className="insights-intro"><p className="eyebrow">From one leader to another</p><h2>A little advice.<br /> A lot of experience.</h2><p>Finding speakers, supporting volunteers, keeping people coming back. Learn from leaders who have been there.</p><ExternalLink className="text-link" href={contribute}>Share your own advice <ArrowUpRight size={19} /></ExternalLink></div>
+    <details className="insights-disclosure"><summary className="insights-reveal"><span className="insights-bubble"><MessageCircle size={26} aria-hidden="true" /></span><span><strong>Explore {insights.length} leader questions</strong><span>Speakers, sponsors, volunteers, inclusion, and more.</span></span><ChevronDown size={22} aria-hidden="true" /></summary><div className="insights-list">{insights.map(({ question, answer }, i) => <details className="insight" key={question}><summary><span className="question-number">{String(i + 1).padStart(2, '0')}</span><span>{question}</span><ChevronDown size={19} aria-hidden="true" /></summary><div className="insight-answer">{answer}</div></details>)}</div></details>
   </div></section>;
 }
 function Directory() {
@@ -114,5 +135,5 @@ function Footer() {
   return <><section className="contribute-section"><div className="wrap contribute-inner"><div><p className="eyebrow">Built by community. Shared with everyone.</p><h2>Your experience could be<br /> someone else’s head start.</h2><p>Share a useful resource, a tool you built, or a lesson from your group.</p></div><ExternalLink href={contribute} className="button button-light">Give back to the community <ArrowUpRight size={20} /></ExternalLink></div></section><footer className="site-footer wrap"><div className="footer-top"><div><Brand /><p>For the people who bring AWS communities together.</p></div><nav aria-label="Footer navigation"><a href="#resources">Leader resources</a><a href="#user-groups">Find a group</a><a href="#insights">Leader insights</a><ExternalLink href="https://www.instagram.com/canadiancloudninja/">Community on Instagram <ArrowUpRight size={14} /></ExternalLink></nav></div><div className="footer-bottom"><p>© {new Date().getFullYear()} AWS User Groups. Community, knowledge, and connection.</p><a href="#hero">Back to top ↑</a></div></footer></>;
 }
 export default function App() {
-  return <><a className="skip-link" href="#main-content">Skip to content</a><Header /><main id="main-content"><Hero /><Resources /><FeaturedCommunity /><Tools /><Insights /><Directory /></main><Footer /></>;
+  return <><a className="skip-link" href="#main-content">Skip to content</a><Header /><main id="main-content"><Hero /><Resources /><FeaturedCommunity /><CommunityMoments /><Tools /><Insights /><Directory /></main><Footer /></>;
 }

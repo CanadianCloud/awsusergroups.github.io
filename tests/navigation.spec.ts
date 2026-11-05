@@ -37,12 +37,31 @@ test('Directory supports search, empty results, country filtering, and paginatio
 
 test('Leader advice can be opened with the keyboard', async ({ page }) => {
   await page.goto('/#insights');
+  await expect(page.locator('.insights-disclosure')).not.toHaveAttribute('open');
+  await expect(page.locator('.insight summary').first()).not.toBeVisible();
+  await page.locator('.insights-reveal').click();
   const question = page.locator('.insight summary').first();
   await question.focus();
   await question.press('Enter');
   await expect(page.locator('.insight[open] .insight-answer')).toContainText('Consistency is key');
   await question.press('Enter');
   await expect(page.locator('.insight[open]')).toHaveCount(0);
+  await page.locator('.insights-reveal').click();
+  await expect(page.locator('.insight summary').first()).not.toBeVisible();
+});
+
+test('Community photography and self-hosted map load without tile services', async ({ page }) => {
+  const externalTiles: string[] = [];
+  page.on('request', request => {
+    if (/cartocdn|basemaps|tile\.openstreetmap|maptiler|mapbox/.test(request.url())) externalTiles.push(request.url());
+  });
+  await page.goto('/');
+  await expect(page.locator('.community-mosaic img')).toHaveCount(5);
+  await expect(page.locator('img[src*="hero-bg"]')).toHaveCount(0);
+  await page.getByRole('link', { name: 'Find a Group', exact: true }).click();
+  await expect(page.locator('#community-map .leaflet-overlay-pane svg path').first()).toBeVisible();
+  await expect(page.locator('#community-map .leaflet-tile')).toHaveCount(0);
+  expect(externalTiles).toEqual([]);
 });
 
 test('Mobile menu closes on navigation without horizontal overflow', async ({ page }) => {

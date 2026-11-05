@@ -10,7 +10,11 @@ The directory uses the existing November 2025 dataset with community corrections
 
 ## Implementation
 
-The responsive homepage is in `src/App.jsx` with styling in `src/index.css`. The accessible native disclosure panels use the advice in `src/data/leaderInsights.js`. The map is split into a separate lazy loaded chunk and supports the same search and country filters as the directory list. A standalone orange globe SVG favicon is in `public/favicon.svg`.
+The responsive homepage is in `src/App.jsx` with styling in `src/index.css`. Nine supplied community photographs now support a five-photo hero mosaic and a four-photo community gallery. The dark hero background is no longer used or published. The original two event photographs and tool logos remain unchanged.
+
+The 13 leader questions are initially hidden inside one native disclosure panel. Visitors can expand the panel, then open any individual question. The advice is in `src/data/leaderInsights.js`.
+
+The map is split into a separate lazy loaded chunk and supports the same search and country filters as the directory list. It renders bundled Natural Earth land geometry with Leaflet. No external tile endpoint or API key is needed. See `src/data/maps/README.md` for source and licensing information. A standalone orange globe SVG favicon is in `public/favicon.svg`.
 
 ## Build and deployment
 
